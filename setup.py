@@ -17,7 +17,7 @@ setuptools.setup(
     url="https://github.com/drunsinn/pyXSteam",
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+        "LGPLv2",
         "Operating System :: OS Independent",
         "Topic :: Scientific/Engineering :: Physics",
         "Development Status :: 4 - Beta"
@@ -30,5 +30,4 @@ setuptools.setup(
     scripts=['bin/pyXSteamDemo.py'],
     test_suite='pyXSteamTest.suite',
     tests_require=['numpy>=1.6.2', 'matplotlib>=2.2.3'],
-
 )
