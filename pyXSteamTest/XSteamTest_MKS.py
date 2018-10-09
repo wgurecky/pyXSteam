@@ -3,7 +3,7 @@
 These Tests are taken form the original XSteam Matlab Script.
 Some Errors are calculated with the help of numpy matrix functions.
 """
-
+from __future__ import division, absolute_import
 import unittest
 from pyXSteam.XSteam import XSteam
 

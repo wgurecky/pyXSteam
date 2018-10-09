@@ -2,6 +2,7 @@
 """
 Section 2: IAPWS IF 97 Calling functions
 """
+from __future__ import division, absolute_import
 import math
 from . import RegionBorders
 from . import Constants
