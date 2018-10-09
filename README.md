@@ -1,3 +1,5 @@
+[![Anaconda-Server Badge](https://anaconda.org/wgurecky/pyxsteam/badges/version.svg)](https://anaconda.org/wgurecky/pyxsteam)
+
 # XSteam
 
 Original Released by Magnus Holmgren for Matlab and Excel:
