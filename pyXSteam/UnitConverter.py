@@ -3,6 +3,7 @@
 Class to convert between the unit system used by pyXSteam and the ones
 a enduser might use.
 """
+from __future__ import division, absolute_import
 import logging
 from . import Constants
 logger = logging.getLogger('pyXSteam-UnitConverter')

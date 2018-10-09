@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import division, absolute_import
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as pyplot
 import numpy as np
@@ -73,7 +74,7 @@ def demo_generate_ph_Diagramm(path=None, precision=1.0):
         pyplot.savefig(path, bbox_inches='tight')
 
 
-def demo_generate_Tp_Diagramm():
+def demo_generate_Tp_Diagramm(path=None):
     '''Generate a T(p) Diagramm showing the Saturation Curve'''
     steamTable = XSteam(XSteam.UNIT_SYSTEM_MKS)
     p = np.arange(-100.0, 250.0, 1.0)
@@ -83,10 +84,13 @@ def demo_generate_Tp_Diagramm():
     pyplot.xlabel("t")
     pyplot.ylabel("p")
     pyplot.setp(line1, linewidth=1, color='b')
-    pyplot.show()
+    if path is None:
+        pyplot.show()
+    else:
+        pyplot.savefig(path, bbox_inches='tight')
 
 
-def demo_generate_pvT_Diagramm():
+def demo_generate_pvT_Diagramm(path=None):
     steamTable = XSteam(XSteam.UNIT_SYSTEM_MKS)
     fig = pyplot.figure()
     ax = Axes3D(fig)
@@ -99,10 +103,13 @@ def demo_generate_pvT_Diagramm():
     ax.set_xlabel("v")
     ax.set_ylabel("p")
     ax.set_zlabel("t")
-    pyplot.show()
+    if path is None:
+        pyplot.show()
+    else:
+        pyplot.savefig(path, bbox_inches='tight')
 
 
-def demo_Moillier_Diagramm():
+def demo_Moillier_Diagramm(path=None):
     steamTable = XSteam(XSteam.UNIT_SYSTEM_MKS)
     s = np.arange(2.0, 10.0, 0.01)
     pSteps = [0.006117, 0.01, 0.02, 1.0, 2.0, 3.0, 10, 100, 1000]
@@ -113,7 +120,10 @@ def demo_Moillier_Diagramm():
         pyplot.setp(hline, linewidth=1, color='b')
     pyplot.xlabel("s in [kJ/(kg K)]")
     pyplot.ylabel("h in [kJ/kg]")
-    pyplot.show()
+    if path is None:
+        pyplot.show()
+    else:
+        pyplot.savefig(path, bbox_inches='tight')
 
 
 if __name__ == '__main__':
@@ -122,6 +132,7 @@ if __name__ == '__main__':
     sh = logging.StreamHandler()
     sh.setFormatter(logging.Formatter('%(name)s - %(levelname)s - %(message)s'))
     logger.addHandler(sh)
+    path = "test_diag.png"
 
     print("Select which demo to run:")
     print("1. Run simple calculations")
@@ -136,22 +147,22 @@ if __name__ == '__main__':
     if len(var) is not 1 or var not in ('1', '2', '3', '4', '5'):
         print("Unknown selection")
     elif var is '1':
-        start = time.process_time()
+        start = time.time()
         demo_simpel_Values()
-        print("Demo took", time.process_time() - start, "seconds to complete")
+        print("Demo took", time.time() - start, "seconds to complete")
     elif var is '2':
-        start = time.process_time()
-        demo_generate_ph_Diagramm()
-        print("Demo took", time.process_time() - start, "seconds to complete")
+        start = time.time()
+        demo_generate_ph_Diagramm(path)
+        print("Demo took", time.time() - start, "seconds to complete")
     elif var is '3':
-        start = time.process_time()
-        demo_generate_Tp_Diagramm()
-        print("Demo took", time.process_time() - start, "seconds to complete")
+        start = time.time()
+        demo_generate_Tp_Diagramm(path)
+        print("Demo took", time.time() - start, "seconds to complete")
     elif var is '4':
-        start = time.process_time()
-        demo_generate_pvT_Diagramm()
-        print("Demo took", time.process_time() - start, "seconds to complete")
+        start = time.time()
+        demo_generate_pvT_Diagramm(path)
+        print("Demo took", time.time() - start, "seconds to complete")
     else:
-        start = time.process_time()
-        demo_Moillier_Diagramm()
-        print("Demo took", time.process_time() - start, "seconds to complete")
+        start = time.time()
+        demo_Moillier_Diagramm(path)
+        print("Demo took", time.time() - start, "seconds to complete")

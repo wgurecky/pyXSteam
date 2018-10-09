@@ -24,7 +24,7 @@ setuptools.setup(
     ],
     packages=setuptools.find_packages(exclude=['docs', 'tests*']),
     install_requires=[],
-    python_requires='>=3.6',
+    python_requires='>=2.7',
     include_package_data=True,
     zip_safe=True,
     scripts=['bin/pyXSteamDemo.py'],

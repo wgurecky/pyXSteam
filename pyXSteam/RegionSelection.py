@@ -2,6 +2,7 @@
 """
 Section 3: Region Selection
 """
+from __future__ import division, absolute_import
 import math
 import logging
 from . import RegionBorders
